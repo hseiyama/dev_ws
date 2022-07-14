@@ -12,8 +12,8 @@ int main(int argc, char **argv)
   rclcpp::init(argc, argv);
 
   if (argc != 3) {
-      RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "usage: add_two_ints_client X Y");
-      return 1;
+    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "usage: add_two_ints_client X Y");
+    return 1;
   }
 
   std::shared_ptr<rclcpp::Node> node = rclcpp::Node::make_shared("add_two_ints_client");
