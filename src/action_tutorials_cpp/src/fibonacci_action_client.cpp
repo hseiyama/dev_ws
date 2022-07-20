@@ -42,9 +42,9 @@ public:
     }
 
     auto goal_msg = Fibonacci::Goal();
-    goal_msg.order = 10;
+    goal_msg.order = 13;
 
-    RCLCPP_INFO(this->get_logger(), "Sending goal");
+    RCLCPP_INFO(this->get_logger(), "[MyClient] Sending goal");
 
     auto send_goal_options = rclcpp_action::Client<Fibonacci>::SendGoalOptions();
     send_goal_options.goal_response_callback =
@@ -65,7 +65,7 @@ private:
     if (!goal_handle) {
       RCLCPP_ERROR(this->get_logger(), "Goal was rejected by server");
     } else {
-      RCLCPP_INFO(this->get_logger(), "Goal accepted by server, waiting for result");
+      RCLCPP_INFO(this->get_logger(), "[MyClient] Goal accepted by server, waiting for result");
     }
   }
 
@@ -74,7 +74,7 @@ private:
     const std::shared_ptr<const Fibonacci::Feedback> feedback)
   {
     std::stringstream ss;
-    ss << "Next number in sequence received: ";
+    ss << "[MyClient] Next number in sequence received: ";
     for (auto number : feedback->partial_sequence) {
       ss << number << " ";
     }
@@ -97,7 +97,7 @@ private:
         return;
     }
     std::stringstream ss;
-    ss << "Result received: ";
+    ss << "[MyClient] Result received: ";
     for (auto number : result.result->sequence) {
       ss << number << " ";
     }
