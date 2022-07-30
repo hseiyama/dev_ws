@@ -43,6 +43,15 @@ ament_target_dependencies(
   tf2_ros
   turtlesim)
 
+add_executable(fixed_frame_tf2_broadcaster src/fixed_frame_tf2_broadcaster.cpp)
+ament_target_dependencies(
+  fixed_frame_tf2_broadcaster
+  geometry_msgs
+  rclcpp
+  tf2
+  tf2_ros
+  turtlesim)
+
 install(TARGETS
   static_turtle_tf2_broadcaster
   DESTINATION lib/${PROJECT_NAME})
@@ -53,6 +62,10 @@ install(TARGETS
 
 install(TARGETS
   turtle_tf2_listener
+  DESTINATION lib/${PROJECT_NAME})
+
+install(TARGETS
+  fixed_frame_tf2_broadcaster
   DESTINATION lib/${PROJECT_NAME})
 
 install(DIRECTORY launch
