@@ -1,5 +1,5 @@
 build/
 install/
 log/
-src/ros_tutorials/
 launch/__pycache__
+src/urdf_tutorial_r2d2/urdf_tutorial_r2d2/__pycache__/
